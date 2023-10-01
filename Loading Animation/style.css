@@ -1,0 +1,22 @@
+body {
+    background-color: aliceblue;
+    margin: 100px 0 0 100px;
+}
+
+.loadin {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    border-top: 2px solid green;
+    animation: loading 0.5s infinite linear;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0dge);
+    }
+    to {
+        transform: rotate(360dge);
+    }
+}
