@@ -92,15 +92,8 @@ input:focus {
     color: antiquewhite;
 }
 
-input:hover {
-    background-color: gray;
-    color: antiquewhite;
-    opacity: 0.7;
-}
-
 input:focus::placeholder {
     color: antiquewhite;
-    content: " ";
 }
 
 .buttons {
