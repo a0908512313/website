@@ -109,7 +109,7 @@ body {
     resize: none;
 }
 
-.send-btn {
+.send_btn {
     color: white;
     background: linear-gradient(to right, #4776e6 0%, #7f47e6 100%);
     padding: 6px 20px;

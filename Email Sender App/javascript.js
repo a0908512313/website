@@ -3,7 +3,12 @@ emailjs.init("nKyezAY8dl7ulg8t1"); // EmailJS User ID
 const sendBtn = document.querySelector('.send-btn');
 const result = document.querySelector('.result');
 
-sendBtn.addEventListener('click', sendEmail);
+if(sendBtn){
+    sendBtn?.addEventListener('click', () => {
+        sendEmail();
+    });
+}
+
 
 function sendEmail(){
     // get the form data
@@ -17,11 +22,10 @@ function sendEmail(){
         subject:subject,
         message:message
     }).then(function () {
-        result.innerHTML = "Email sent successfully!"
-        result.computedStyleMap.opacity = 1;
-    }, function (error){
-        result.innerHTML = "Email senting failed!"
-        result.computedStyleMap.opacity = 1;
-        console.log(error);
-    })
+            result.innerHTML = "Email sent successfully!";
+            result.style.opacity = 1;
+        }, function (error) {
+            result.innerHTML = "Email sending failed!";
+            result.style.opacity = 1;
+        });
 }
