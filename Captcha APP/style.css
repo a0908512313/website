@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #36d1dc;
+	background: linear-gradient(to right, #5b86e5, #36d1dc);
+}
+
+#captcha-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #fff;
+	padding: 40px 30px 40px;
+	border-radius: 8px;
+	border-radius: 8px;
+	box-shadow: 0 1em 2em rgba(0, 0, 0, 0.25);
+}
+
+#captcha-container img {
+	width: 100%;
+	height: 200px;
+	object-fit: left;
+	border-radius: 6px;
+	margin-bottom: 20px;
+}
+
+.captcha {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+	gap: 10px;
+}
+
+canvas {
+	border: none;
+	background-color: #e8e8e8;
+	border: 2px #1939ba solid;
+	border-radius: 5px;
+}
+
+button {
+	background-color: #1939ba;
+	color: #fff;
+	outline: none;
+	height: 40px;
+	font-weight: 500;
+	letter-spacing: 1.5px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+button,
+input {
+	padding: 12px;
+	border: 1px #ddd solid;
+	border-radius: 5px;
+}
+
+button:hover {
+	background-color: blue;
+}
+
+input {
+	width: 100%;
+	height: 20px;
+	outline: none;
+	margin-bottom: 10px;
+	transition: 0.3s ease;
+}
+
+input::placeholder {
+	opacity: 0.7;
+	letter-spacing: 1.5px;
+}
+
+input:focus {
+	border: 1px gray solid;
+}
+
+input:focus::placeholder {
+	opacity: 1;
+}
+
+#check-captcha {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+#captcha-status {
+	letter-spacing: 1.5px;
+}
