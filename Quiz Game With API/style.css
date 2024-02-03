@@ -79,18 +79,25 @@ html {
 	font-size: 1em;
 	margin: 20px 0;
 	color: #5a5a5a;
+	margin-bottom: 20px;
+}
+
+#answers {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 .answer-btn {
 	width: calc(100%-20px);
 	padding: 10px 20px;
-	margin-right: 5px;
 	margin-bottom: 12px;
 	background-color: #1c1917;
 	color: #fff;
 	border: none;
 	border-radius: 8px;
-	font-size: 0.9em;
+	font-size: 1.1em;
 	cursor: pointer;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 	transition: transform 0.1s ease;
