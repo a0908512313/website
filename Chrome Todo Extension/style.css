@@ -7,6 +7,8 @@ body {
 }
 
 #container {
+	display: flex;
+	flex-direction: column;
 	background-color: #fff;
 	padding: 15px;
 	border-radius: 8px;
@@ -62,9 +64,10 @@ input[type="checkbox"] {
 }
 
 button:not(#add-task) {
+	background-color: #fff;
 	margin-left: 5px;
 	padding: 5px 8px;
-	border: none;
+	border: 0.5px gray solid;
 	border-radius: 4px;
 	font-size: 12px;
 	cursor: pointer;

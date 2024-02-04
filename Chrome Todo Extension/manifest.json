@@ -1,11 +1,19 @@
 {
 	"manifest_version": 3,
-	"name": "Chrome To-Do",
+	"name": "To-Do List",
+	"version": "1.0",
 	"description": "A simple and clean to-do list extension!",
-	"version": 1,
 	"action": {
-		"default_popup": "index.html"
+		"default_popup": "index.html",
+		"default_icons": "icons/icon128.png"
 	},
+	"content_scripts": [
+		{
+			"css": ["style.css"],
+			"js": ["javascript.js"],
+			"matches": ["http://*.example.com//"]
+		}
+	],
 	"permissions": ["storage"],
 	"icons": {
 		"16": "icons/icon16.png",
