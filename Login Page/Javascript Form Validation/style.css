@@ -1,0 +1,162 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Segoe UI", sans-serif;
+}
+
+body {
+	background-color: #dcdcdc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	padding: 0 20px;
+}
+
+.container {
+	display: flex;
+	gap: 20px;
+	background-color: #fff;
+	width: 100%;
+	max-width: 920px;
+	padding: 25px;
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.container img {
+	width: 50%;
+	border-radius: 20px;
+	object-fit: cover;
+}
+
+form {
+	width: 50%;
+}
+
+form h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.form-control {
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.form-control label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.form-control input,
+.form-control textarea {
+	width: 100%;
+	padding: 10px;
+	padding-right: 40px;
+	border: 2px #ddd solid;
+	border-radius: 10px;
+	outline: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+button {
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #77b7cd;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+button:hover {
+	background-color: #295580;
+}
+
+.icon {
+	position: absolute;
+	right: 10px;
+	top: 71%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: transparent;
+	pointer-events: none;
+}
+
+.success input,
+.success textarea {
+	border-color: #2ecc71;
+}
+
+.success .icon {
+	color: #2ecc71;
+}
+
+.error input,
+.error textarea,
+.error .icon,
+.error input::placeholder,
+.error textarea::placeholder {
+	border-color: #e74c3c;
+}
+
+.error .icon,
+.error input::placeholder,
+.error textarea::placeholder {
+	color: #e74c3c;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: none;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal-content {
+	width: 80%;
+	max-width: 500px;
+	border: 1px #888 solid;
+	border-radius: 10px;
+	padding: 20px;
+	margin: 15% auto;
+	background-color: #fefefe;
+	text-align: center;
+}
+
+#close-button {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+#close-button:focus,
+#close-button:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 920px) {
+	.container img {
+		display: none;
+	}
+
+	.container form {
+		width: 100%;
+	}
+}
