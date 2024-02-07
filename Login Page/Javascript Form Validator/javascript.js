@@ -45,6 +45,42 @@ document.addEventListener("DOMContentLoaded", () => {
 		);
 	});
 
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~ Input
+
+	name.addEventListener("change", () => {
+		validateField(name, name.value.trim() !== "", "Name cannot be blank");
+	});
+
+	email.addEventListener("change", () => {
+		validateField(email, isEmail(email.value.trim()), "Not a valid email");
+	});
+
+	phone.addEventListener("change", () => {
+		validateField(
+			phone,
+			isPhone(phone.value.trim()),
+			"Not a valid phone number"
+		);
+	});
+
+	password.addEventListener("change", () => {
+		validateField(
+			password,
+			password.value.trim().length >= 8,
+			"Password must be at least 8 characters"
+		);
+	});
+
+	message.addEventListener("change", () => {
+		validateField(
+			message,
+			message.value.trim() !== "",
+			"Message cannot be blank"
+		);
+	});
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~ Change
+
 	function checkInputs() {
 		let isValid = true;
 		validateField(name, name.value.trim() !== "", "Name cannot be blank");
@@ -84,17 +120,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function setSuccess(input) {
 		const formControl = input.parentElement;
-		const icon = formControl.querySelector(".icon");
 		formControl.classList.add("success");
+		formControl.classList.remove("error");
+		const icon = formControl.querySelector(".icon");
 		icon.className = "icon fas fa-check-circle";
+		const warningMessage = input.nextElementSibling.nextElementSibling;
+		warningMessage.style.display = "none";
 	}
 
-	function setError(input, message) {
+	function setError(input, errorMessage) {
 		const formControl = input.parentElement;
-		const icon = formControl.querySelector(".icon");
 		formControl.classList.add("error");
+		formControl.classList.remove("success");
+		const icon = formControl.querySelector(".icon");
 		icon.className = "icon fas fa-times-circle";
-		input.placeholder = message;
+		const warningMessage = input.nextElementSibling.nextElementSibling;
+		warningMessage.style.display = "inline";
+		warningMessage.innerText = errorMessage;
+		input.placeholder = errorMessage;
 	}
 
 	function isEmail(email) {

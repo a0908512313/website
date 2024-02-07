@@ -42,7 +42,7 @@ form h2 {
 
 .form-control {
 	position: relative;
-	margin-bottom: 15px;
+	margin-top: 10px;
 }
 
 .form-control label {
@@ -81,6 +81,7 @@ button:hover {
 }
 
 .icon {
+	align-content: center;
 	position: absolute;
 	right: 10px;
 	top: 71%;
@@ -106,9 +107,21 @@ button:hover {
 	border-color: #e74c3c;
 }
 
+.error .icon {
+	top: 47px;
+}
+
 .error .icon,
 .error input::placeholder,
 .error textarea::placeholder {
+	color: #e74c3c;
+}
+
+#warning-message {
+	display: inline;
+	padding-top: 3px;
+	padding-left: 20px;
+	font-size: 14px;
 	color: #e74c3c;
 }
 
