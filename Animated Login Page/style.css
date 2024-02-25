@@ -132,6 +132,19 @@ form input {
 
 form a {
 	color: #333;
+	font-weight: 400;
+	font-size: 1rem;
+	text-decoration: none;
+	text-underline-offset: 6px;
+	text-decoration-color: #333;
+}
+
+#signupForget:hover {
+	text-decoration: underline;
+}
+
+#loginForget:hover {
+	text-decoration: underline;
 }
 
 .signup-section form a {
