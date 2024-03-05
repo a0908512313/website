@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Box Shadow Geenrator</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<!-- https://www.youtube.com/watch?v=MW4Zj6hO7lE&list=WL&index=3 -->
+	<body>
+		<div class="container">
+			<h1>Box Shadow Geenrator</h1>
+			<div class="item"></div>
+
+			<div class="container-sliders">
+				<div class="flex-col">
+					<div class="flex">
+						Horizontal:
+						<div class="horizontal-value">0</div>
+					</div>
+					<input
+						type="range"
+						value="0"
+						min="-100"
+						max="100"
+						class="slider-horizontal slider"
+					/>
+				</div>
+
+				<div class="flex-col">
+					<div class="flex">
+						Vertical:
+						<div class="vertical-value">0</div>
+					</div>
+					<input
+						type="range"
+						value="0"
+						min="-100"
+						max="100"
+						class="slider-vertical slider"
+					/>
+				</div>
+
+				<div class="flex-col">
+					<div class="flex">
+						Blur:
+						<div class="blur-value">10</div>
+					</div>
+					<input
+						type="range"
+						value="10"
+						min="0"
+						max="100"
+						class="slider-blur slider"
+					/>
+				</div>
+
+				<div class="flex-col">
+					<div class="flex">
+						Spread:
+						<div class="spread-value">10</div>
+					</div>
+					<input
+						type="range"
+						value="0"
+						min="-100"
+						max="100"
+						class="slider-spread slider"
+					/>
+				</div>
+
+				<div class="flex">
+					<div class="flex-col">
+						<div>Inset</div>
+						<input type="checkbox" class="input-inset" />
+					</div>
+					<input type="color" class="input-color" />
+				</div>
+			</div>
+
+			<div class="container-css">
+				<div>CSS Code:</div>
+				<div class="css-code"></div>
+			</div>
+		</div>
+
+		<script src="javascript.js"></script>
+	</body>
+</html>
