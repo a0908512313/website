@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Alarm Clock APP</title>
+		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://kit.fontawesome.com/1c2e21e44e.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Alarm APP</h1>
+			<div id="countdownTimer"></div>
+			<div class="button-section">
+				<button id="add-new-button">Add New Alarm</button>
+				<button id="clearButton">Clear All</button>
+			</div>
+
+			<div id="alarmList">
+				<h2>Alarms</h2>
+				<ul id="alarms"></ul>
+			</div>
+
+			<div id="alarmMessage"></div>
+
+			<div class="modal" id="editModal">
+				<div class="model-content">
+					<span id="cancelbutton" class="close">&times;</span>
+					<h2>Edit Alarm</h2>
+
+					<div class="alrt-name">
+						<label for="editName">Name : </label>
+						<input type="text" id="editName" required />
+					</div>
+
+                    <div class="time-date">
+                        <label for="editDate">Date : </label:editDate>
+                        <input type="date" id="editDate" required>
+                        <label for="editTime">Time : </label:editDate>
+                        <input type="time" id="editTime" required>
+                    </div>
+                    <button id="saveButton">Save Changes</button>
+				</div>
+			</div>
+
+            <div id="notification">
+                <div id="notificationMessage"></div>
+                <button id="okButton"></button>
+            </div>
+		</div>
+
+        <div id="new-alarm">
+                <form action="#" id="alarmForm">
+                    <div class="alrt-name">
+                        <label for="alarmName">Alarm Name : </label>
+                        <input type="text"  id="alarmName" required>
+                    </div>
+
+                    <div class="time-date">
+                        <label for="alarmDate">Date : </label>
+                        <input type="date"  id="alarmDate" required>
+                        <label for="alarmTime">Time : </label>
+                        <input type="time"  id="alarmTime" required>
+                    </div>
+
+                    <div class="alarm-btn">
+                        <button id="close">Close</button>
+                        <button id="alarmButton">Add Alarm</button>
+                    </div>
+                </form>
+            </div>
+
+		<script src="javascript.js"></script>
+	</body>
+</html>
