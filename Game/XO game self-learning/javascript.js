@@ -1,4 +1,7 @@
 const buttons = document.querySelectorAll('[id^="btnN"]');
+console.log(buttons);
+buttonsArray = Object.values(buttons);
+console.log(buttonsArray);
 const resetBtn = document.getElementById("reset-btn");
 const winLines = [
 	[0, 1, 2],
@@ -15,13 +18,11 @@ var current = "O";
 var total = 0;
 var isEnd = false;
 
-if (typeof buttons == Array) {
-	buttons.forEach((button) => {
-		button.addEventListener("click", () => {
-			markSpace(button.id);
-		});
+buttons.forEach((button) => {
+	button.addEventListner("click", () => {
+		markSpace(button.id);
 	});
-}
+});
 
 function markSpace(id) {
 	if (!isEnd) {
@@ -29,21 +30,24 @@ function markSpace(id) {
 		var btnIndex = parseInt(btn[4] - 1);
 		if (currentLines[btnIndex] == "") {
 			currentLines[btnIndex] = current;
-			btn.innerText = current;
-			btn.style.backgroundColor = "lightgreen";
-			btn.style.color = "white";
+			btn.innerText = current[btnIndex];
+			if (current == "O") {
+				btn.style.backgroundColor = "lightgreen";
+				btn.style.color = "white";
+			}
 		}
 	}
 	check();
 	total++;
 
-	while (currentLines[randomInt(0, 8)]) {
-		btn.style.backgroundColor = "#cc4444";
-		btn.style.color = "white";
-		total++;
-		break;
+	while (true) {
+		while (current[randomInt(0, 8) == ""]) {
+			btn.style.backgroundColor = "#cc4444";
+			btn.style.color = "white";
+		}
 	}
 }
+
 function randomInt(start, end) {
 	return Math.floor(Math.random() * (end - start + 1)) + start;
 }
@@ -58,12 +62,8 @@ function check() {
 			) {
 				isEnd = false;
 				break;
-			} else;
-			{
-				if (currentLines[winLines[rolIndex][Math.random(1, 3)] != ""])
-					isEnd = true;
 			}
-			if (isEnd) {
+			if ((isEnd = True)) {
 				if (
 					currentLines[winLines[rolIndex][Math.random(1, 3)] == "O"]
 				) {
@@ -82,8 +82,9 @@ function check() {
 	}
 }
 
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListner("click", () => {
 	isEnd = false;
+	current = "O";
 	for (let i = 0; i < 9; i++) {
 		ttt[i] = "";
 	}

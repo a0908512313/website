@@ -38,10 +38,14 @@ button:hover {
 }
 
 #reset-btn {
+	position: relative;
+	top: 50%;
 	color: red;
 	border: 1px gray solid;
 	outline: none;
 	padding: 10px 20px;
+	width: 120px;
+	height: 40px;
 }
 
 h1 {
@@ -53,7 +57,16 @@ p {
 }
 
 #result {
+	font-weight: normal;
 	font-weight: bold;
 	color: blue;
 	text-align: center;
+}
+
+#resultSpan1 {
+	font-weight: normal;
+}
+
+#resultMain {
+	color: red;
 }
