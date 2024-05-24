@@ -14,22 +14,21 @@ var currentLines = ["", "", "", "", "", "", "", "", ""];
 var current = "O";
 var total = 0;
 var isEnd = false;
+var total = 0;
 
-if (typeof buttons == Array) {
-	buttons.forEach((button) => {
-		button.addEventListener("click", () => {
-			markSpace(button.id);
-		});
+buttons.forEach((button) => {
+	button.addEventListener("click", () => {
+		markSpace(button.id);
 	});
-}
+});
 
 function markSpace(id) {
 	if (!isEnd) {
 		var btn = document.getElementById(id);
-		var btnIndex = parseInt(btn[4] - 1);
+		var btnIndex = parseInt(btn.id[4] - 1);
 		if (currentLines[btnIndex] == "") {
 			currentLines[btnIndex] = current;
-			btn.innerText = current;
+			btn.textContent = current;
 			btn.style.backgroundColor = "lightgreen";
 			btn.style.color = "white";
 		}
@@ -37,10 +36,13 @@ function markSpace(id) {
 	check();
 	total++;
 
-	while (currentLines[randomInt(0, 8)]) {
+	while (currentLines[randomInt(0, 8)] == "") {
 		btn.style.backgroundColor = "#cc4444";
 		btn.style.color = "white";
+		currentLines[randomInt(0, 8)] = "X";
+		currentLines[randomInt(0, 8)].textContent = "X";
 		total++;
+		check();
 		break;
 	}
 }
@@ -58,39 +60,40 @@ function check() {
 			) {
 				isEnd = false;
 				break;
-			} else;
-			{
+			} else {
 				if (currentLines[winLines[rolIndex][Math.random(1, 3)] != ""])
 					isEnd = true;
 			}
+
 			if (isEnd) {
 				if (
 					currentLines[winLines[rolIndex][Math.random(1, 3)] == "O"]
 				) {
-					document.getElementById("Result").innerText = "You WIN!!!";
+					document.getElementById("result").textContent =
+						" You WIN!!!";
 				} else if (
 					currentLines[winLines[rolIndex][Math.random(1, 3)] == "X"]
 				) {
-					document.getElementById("Result").innerText =
-						"Computer WIN!!!";
+					document.getElementById("result").textContent =
+						" Computer WIN!!!";
 				}
 			}
 		}
 	}
-	if ((total = 9)) {
-		document.getElementById("Result").innerText = "It's tie";
+	if (total == 9) {
+		document.getElementById("result").textContent = " It's tie";
 	}
 }
 
 resetBtn.addEventListener("click", () => {
 	isEnd = false;
 	for (let i = 0; i < 9; i++) {
-		ttt[i] = "";
+		currentLines[i] = "";
 	}
 	buttons.forEach((button) => {
 		button.style.backgroundColor = "darkgray";
-		button.innerText = "";
+		button.textContent = "";
 	});
-	resetBtn.innerText = "Result";
+	resetBtn.textContent = "Result";
 	total = 0;
 });
