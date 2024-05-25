@@ -1,4 +1,7 @@
 const buttons = document.querySelectorAll('[id^="btnN"]');
+console.log(buttons);
+buttonsArray = Object.values(buttons);
+console.log(buttonsArray);
 const resetBtn = document.getElementById("reset-btn");
 const winLines = [
 	[0, 1, 2],
@@ -46,6 +49,7 @@ function markSpace(id) {
 		break;
 	}
 }
+
 function randomInt(start, end) {
 	return Math.floor(Math.random() * (end - start + 1)) + start;
 }
@@ -85,8 +89,9 @@ function check() {
 	}
 }
 
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListner("click", () => {
 	isEnd = false;
+	current = "O";
 	for (let i = 0; i < 9; i++) {
 		currentLines[i] = "";
 	}
