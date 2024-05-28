@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>IOS Dynamic Island</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="javascript.js" defer></script>
+	</head>
+	<body>
+		<div class="container flex">
+			<button class="btn-connect">Connect Airpods</button>
+
+			<div class="phone">
+				<div class="flex wrapper-island wrapper-island-1">
+					<div class="time">7:46</div>
+
+					<div class="flex island pointer click-animation">
+						<!-- VARIANT 1 -->
+						<div class="flex icons-1">
+							<img src="assets/lens.png" class="img lens" />
+						</div>
+
+						<!-- VARIANT 2 -->
+						<div class="flex icons-2">
+							<img
+								src="assets/airpods.png"
+								class="img airpods-small"
+							/>
+							<img
+								src="assets/charge-small.png"
+								class="img charge-small"
+							/>
+						</div>
+
+						<!-- VARIANT 3 -->
+						<div class="flex icons-3">
+							<img
+								src="assets/airpods-big.png"
+								class="img airpods-big"
+							/>
+
+							<div class="text hidden">
+								<div class="gray">Connected</div>
+								<div class="white">Pawel's Airpods</div>
+							</div>
+
+							<img
+								src="assets/charge-big.png"
+								class="img charge-big"
+							/>
+						</div>
+					</div>
+
+					<div class="icons-wrapper">
+						<img src="assets/signal.svg" class="icon signal" />
+						<img src="assets/wifi.svg" class="icon wifi" />
+						<img src="assets/battery.svg" class="icon battery" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
