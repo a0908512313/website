@@ -11,7 +11,7 @@ const closeBtn = document.getElementById("close-btn");
 // Initializing variables
 let editBool = false;
 let originalId = null;
-let flashCard = JSON.parse(localStorage.getItem("flashcards")) || [];
+let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
 
 addQuestion.addEventListener("click", () => {
 	// Show the add question modal and hide the container
@@ -45,7 +45,7 @@ saveBtn.addEventListener("click", () => {
 		}
 		let id = Date.now();
 		// Add the new flashcard to the array
-		flashcard.push({ id, question: tempQuestion, answer: tempAnswer });
+		flashcards.push({ id, question: tempQuestion, answer: tempAnswer });
 		// Save the flashcards array to localStorage
 		localStorage.setItem("flashcards", JSON.stringify(flashcards));
 		container.classList.remove("hide");
@@ -53,7 +53,85 @@ saveBtn.addEventListener("click", () => {
 		viewList();
 		question.value = "";
 		answer.value = "";
-		editBool.value = false;
+		editBool = false;
 		addQuestionModal.classList.add("hide");
 	}
 });
+
+// Function to display the flashcard list
+function viewList() {
+	const cardList = document.querySelector(".cards-list");
+	cardList.innerHTML = "";
+	flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
+	flashcards.forEach((flashcard) => {
+		const div = document.createElement("div");
+		div.classList.add("card");
+		div.innerHTML = `
+		<p class="que-div">${flashcard.question}</p>
+		<p class="ans-card hide">${flashcard.answer}</p>
+		<button class="show-hide-btn">Show/Hide</button>
+		<div class="btns-con">
+			<button class="edit">
+				<i class="fa-solid fa-pen-to-square"></i>
+			</button>
+			<button class="delete">
+				<i class="fa-solid fa-trash"></i>
+			</button>
+		</div>`;
+
+		div.setAttribute("data-id", flashcard.id);
+		const dispalyAns = div.querySelector(".ans-div");
+		const showHideBtn = div.querySelector(".show-hide-btn");
+		const editBtn = div.querySelector(".edit");
+		const deleteBtn = div.querySelector(".delete");
+
+		showHideBtn.addEventListener("click", () => {
+			// Toggle the visibility of the answer
+			dispalyAns.classList.toggle("hide");
+		});
+
+		editBtn.addEventListener("click", () => {
+			// Enable editing mode and show the add question card
+			editBool = true;
+			modifyElement(editBtn, true);
+			addQuestionModal.classList.remove("hide");
+		});
+
+		deleteBtn.addEventListener("click", () => {
+			// Delete the flashcard
+			modifyElement(deleteBtn);
+		});
+
+		cardList.appendChild(div);
+	});
+}
+
+// Function to modify a flashcard
+const modifyElement = (element, edit = false) => {
+	const parentDiv = document.parentElement.parentElement;
+	const id = Number(parentDiv.getAttribute("data-id"));
+	const parentQuestion = parentDiv.querySelector(".que-div").innerText;
+	if (edit) {
+		const parentAnswer = parentDiv.querySelector(".ans-div").innerText;
+		answer.value = parentAnswer;
+		question.value = parentQuestion;
+		originalId = id;
+		disableBtns(true);
+	} else {
+		// Remove the flashcard from array and update localStorage
+		flashcards = flashcards.filter((flashcard) => flashcard.id !== id);
+		localStorage.setItem("flashcards", JSON.stringify(flashcards));
+	}
+	parentDiv.remove();
+};
+
+// Function to disable edit buttons
+const disableBtns = (value) => {
+	const editButtons = document.getElementsByClassName("edit");
+	Array.from(editButtons).forEach((element) => {
+		element.disable = true;
+	});
+};
+
+// Even listener to display the flashcard list when the DOM is loaded
+document.addEventListener("DOMContentLoaded", viewList());
