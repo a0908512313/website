@@ -1,7 +1,5 @@
 const buttons = document.querySelectorAll('[id^="btnN"]');
-console.log(buttons);
 buttonsArray = Object.values(buttons);
-console.log(buttonsArray);
 const resetBtn = document.getElementById("reset-btn");
 const winLines = [
 	[0, 1, 2],
