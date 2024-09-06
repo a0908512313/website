@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+	font-family: "Poppins", sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ebeaf4;
+}
+
+.btn {
+	position: relative;
+	border: none;
+	min-width: 144px;
+	background: #000;
+	color: #fff;
+	padding: 8px 28px;
+	border-radius: 5px;
+	text-align: center;
+	overflow: hidden;
+	cursor: pointer;
+	transition: 0.4s cubic-bezier(0.36, 1.01, 0.32, 1.27);
+}
+
+.btn:active {
+	transform: scale(0.95);
+}
+
+.btn span {
+	display: block;
+	position: relative;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 26px;
+	transition: 0.7s ease;
+}
+
+.btn.adding span {
+	transform: translateY(-32px);
+}
+
+.btn span i {
+	margin-right: 10px;
+	transition: 0.65s ease 0.05s;
+}
+
+.btn.adding span i {
+	transform: rotate(180deg);
+}
+
+.btn .cart {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -13px 0 0 -18px;
+	transform-origin: 12px 23px;
+	transform: translateX(-120px) rotate(-18deg);
+}
+
+.btn .cart svg {
+	z-index: 1;
+	width: 36px;
+	height: 26px;
+	display: block;
+	position: relative;
+	fill: none;
+	stroke: #fff;
+	stroke-width: 2px;
+}
+
+.btn .cart::before,
+.btn .cart::after {
+	position: absolute;
+	content: "";
+}
+
+.btn .cart::before {
+	width: 6px;
+	height: 6px;
+	box-shadow: inset 0 0 0 2px #fff;
+	border-radius: 50%;
+	bottom: 0;
+	left: 9px;
+	filter: drop-shadow(11px 0 0 #fff);
+}
+
+.btn .cart::after {
+	width: 16px;
+	height: 9px;
+	background: #fff;
+	left: 9px;
+	bottom: 7px;
+	transform-origin: 50% 100%;
+	transform: perspective(4px) rotateX(-6deg) scaleY(0);
+	transition: 1.2s ease 0.8s;
+}
+
+.btn.adding .cart::after {
+	transform: perspective(4px) rotateX(-6deg) scaleY(1);
+}
+
+.btn .cart svg .tick {
+	stroke: #000;
+	stroke-dasharray: 10px;
+	stroke-dashoffset: 10px;
+	transition: 0.4s ease 1.73s;
+}
+
+.btn.adding .cart svg .tick {
+	stroke-dashoffset: 0px;
+}
+
+.btn.adding .cart {
+	animation: anim 3.4s linear forwards 0.2s;
+}
+
+@keyframes anim {
+	12.5% {
+		transform: translateX(-60px) rotate(-18deg);
+	}
+	25%,
+	45%,
+	55%,
+	75% {
+		transform: none;
+	}
+	50% {
+		transform: scale(0.9);
+	}
+	44%,
+	56% {
+		transform-origin: 12px 23px;
+	}
+	45%,
+	55% {
+		transform-origin: 50% 50%;
+	}
+	87.5% {
+		transform: translateX(70px) rotate(-18deg);
+	}
+	100% {
+		transform: translateX(140px) rotate(-18deg);
+	}
+}
